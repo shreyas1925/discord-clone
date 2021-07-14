@@ -15,7 +15,7 @@ const SideBar = () => {
     <div className="sidebar">
       <div className="sidebar__top">
         <h3>Shreyas Discord Clone</h3>
-        <ExpandMoreIcon />
+        <ExpandMoreIcon className="topIcon" />
       </div>
 
       <div className="sidebar__channels">
@@ -49,7 +49,10 @@ const SideBar = () => {
         </div>
       </div>
       <div className="sidebar__profile">
-        <Avatar src="https://images.pexels.com/photos/5119214/pexels-photo-5119214.jpeg?cs=srgb&dl=pexels-cottonbro-5119214.jpg&fm=jpg" />
+        <Avatar
+          className="profile"
+          src="https://images.pexels.com/photos/5119214/pexels-photo-5119214.jpeg?cs=srgb&dl=pexels-cottonbro-5119214.jpg&fm=jpg"
+        />
         <div className="sidebar__profileInfo">
           <h3>shreyas19</h3>
           <p>#82828hhhs</p>

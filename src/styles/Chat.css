@@ -1,0 +1,73 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 0.75; /*here we are taking spacing of 0.25 and 0.75 */
+  height: 100vh;
+  background-color: #363a3f;
+  width: 100vw;
+}
+
+/* ChatHeader css parts */
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  color: gray;
+}
+.chatHeader__hash {
+  color: gray;
+  font-size: 30px;
+  padding: 10px;
+}
+.chatHeader__left > h3 {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.chatHeader__right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0.5;
+}
+
+.chatHeader__right > .MuiSvgIcon-root {
+  padding: 5px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.chatHeader__right > .MuiSvgIcon-root:hover {
+  color: white;
+}
+
+.chatHeader__search {
+  display: flex;
+  align-items: center;
+  color: gray;
+  background-color: #2f3135;
+  border-radius: 3px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.chatHeader__search > input {
+  background-color: transparent;
+  outline-width: 0;
+  color: white;
+  border: none;
+}
+
+/* Chat input part codes */
+
+.chat__input {
+  color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
