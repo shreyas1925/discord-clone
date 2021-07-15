@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/SideBar.css";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
@@ -10,7 +10,25 @@ import { Avatar } from "@material-ui/core";
 import MicIcon from "@material-ui/icons/Mic";
 import SettingsIcon from "@material-ui/icons/Settings";
 import HeadsetIcon from "@material-ui/icons/Headset";
+import { selectUser } from "../features/UserSlice";
+import { useSelector } from "react-redux";
+import db, { auth } from "../firebase";
+
 const SideBar = () => {
+  const user = useSelector(selectUser);
+  const [channels, setChannels] = useState([]);
+
+  useEffect(() => {
+    db.collection("channels").onSnapshot((snapshot) => {
+      setChannels(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          channel: doc.data(),
+        }))
+      );
+    });
+  }, []);
+
   return (
     <div className="sidebar">
       <div className="sidebar__top">
@@ -51,11 +69,12 @@ const SideBar = () => {
       <div className="sidebar__profile">
         <Avatar
           className="profile"
-          src="https://images.pexels.com/photos/5119214/pexels-photo-5119214.jpeg?cs=srgb&dl=pexels-cottonbro-5119214.jpg&fm=jpg"
+          src={user.photo}
+          onClick={() => auth.signOut()}
         />
         <div className="sidebar__profileInfo">
-          <h3>shreyas19</h3>
-          <p>#82828hhhs</p>
+          <h3>{user.displayName}</h3>
+          <p>#{user.uid.substring(0, 7)}</p>
         </div>
         <div className="sidebar__profileIcons">
           <MicIcon />
