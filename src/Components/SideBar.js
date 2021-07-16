@@ -19,6 +19,7 @@ const SideBar = () => {
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
+    // onSnapshot when anything changes in realtime example adding or deleteing channels here
     db.collection("channels").onSnapshot((snapshot) => {
       setChannels(
         snapshot.docs.map((doc) => ({
@@ -28,6 +29,15 @@ const SideBar = () => {
       );
     });
   }, []);
+
+  const handleChannel = () => {
+    const channelName = prompt("Enter a channel name");
+    if (channelName) {
+      db.collection("channels").add({
+        channelName: channelName,
+      });
+    }
+  };
 
   return (
     <div className="sidebar">
@@ -42,14 +52,16 @@ const SideBar = () => {
             <ExpandMoreIcon />
             <h4>Text Channels</h4>
           </div>
-          <AddIcon className="sidebar__addChannel" />
+          <AddIcon onClick={handleChannel} className="sidebar__addChannel" />
         </div>
         <div className="sidebar__channelsList">
-          <SideBarChannel />
-          <SideBarChannel />
-          <SideBarChannel />
-          <SideBarChannel />
-          <SideBarChannel />
+          {channels.map(({ id, channel }) => (
+            <SideBarChannel
+              key={id}
+              id={id}
+              channelName={channel.channelName}
+            />
+          ))}
         </div>
       </div>
       <div className="sidebar__voice">
