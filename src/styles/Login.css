@@ -3,6 +3,7 @@
   width: 100%;
   display: grid;
   place-items: center;
+  background-color: #2f3135;
 }
 
 .login > button {
@@ -21,7 +22,7 @@
 
 .login > div > img {
   object-fit: contain;
-  height: 180px;
+  height: 480px;
   max-width: 600px;
   padding: 10px;
 }

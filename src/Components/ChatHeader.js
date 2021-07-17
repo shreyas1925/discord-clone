@@ -6,10 +6,7 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
 import HelpRoundedIcon from "@material-ui/icons/HelpRounded";
 
-import SideBarChannel from "./SideBarChannel";
-const ChatHeader = ({ channelName }) => {
-  const [input, setInput] = useState("");
-
+const ChatHeader = ({ channelName, search, setSearch }) => {
   return (
     <div className="chatHeader">
       <div className="chatHeader__left">
@@ -22,15 +19,15 @@ const ChatHeader = ({ channelName }) => {
         <NotificationsIcon />
         <EditLocationRoundedIcon />
         <PeopleAltRoundedIcon />
-        {/* <SideBarChannel input="s" /> */}
+
         <form>
           {/* {input} */}
           <div className="chatHeader__search">
             <input
               type="text"
-              value={input}
+              value={search}
               placeholder="Search"
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => setSearch(e.target.value)}
             />
 
             <SearchRoundedIcon type="submit" />

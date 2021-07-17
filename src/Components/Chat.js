@@ -43,12 +43,20 @@ const Chat = () => {
     setInput("");
   };
 
+  const [search, setSearch] = useState("");
+
+  const filteredMessages = messages.filter((message) => {
+    return message.message.toLowerCase().includes(search.toLowerCase());
+  });
   return (
     <div className="chat">
-      <ChatHeader channelName={channelName} />
-
+      <ChatHeader
+        channelName={channelName}
+        search={search}
+        setSearch={setSearch}
+      />
       <div className="chat__messages">
-        {messages.map((message) => (
+        {filteredMessages.map((message) => (
           <Message
             key={message.key}
             timestamp={message.timestamp}
