@@ -3,7 +3,7 @@ import "../styles/SideBar.css";
 import { useDispatch } from "react-redux";
 import { setChannelInfo } from "../features/appSlice";
 
-const SideBarChannel = ({ id, channelName }) => {
+const SideBarChannel = ({ id, channelName, input }) => {
   const dispatch = useDispatch();
   const handleChannel = () => {
     dispatch(setChannelInfo({ channelId: id, channelName: channelName }));

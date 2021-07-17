@@ -14,7 +14,7 @@ import { selectUser } from "../features/UserSlice";
 import { useSelector } from "react-redux";
 import db, { auth } from "../firebase";
 
-const SideBar = () => {
+const SideBar = ({ input }) => {
   const user = useSelector(selectUser);
   const [channels, setChannels] = useState([]);
 
