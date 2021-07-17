@@ -20,14 +20,14 @@ const SideBar = () => {
 
   useEffect(() => {
     // onSnapshot when anything changes in realtime example adding or deleteing channels here
-    db.collection("channels").onSnapshot((snapshot) => {
+    db.collection("channels").onSnapshot((snapshot) =>
       setChannels(
         snapshot.docs.map((doc) => ({
           id: doc.id,
           channel: doc.data(),
         }))
-      );
-    });
+      )
+    );
   }, []);
 
   const handleChannel = () => {
@@ -42,7 +42,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__top">
-        <h3>Shreyas Discord Clone</h3>
+        <h2>Discord Clone</h2>
         <ExpandMoreIcon className="topIcon" />
       </div>
 

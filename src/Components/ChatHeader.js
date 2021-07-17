@@ -11,7 +11,7 @@ const ChatHeader = ({ channelName }) => {
       <div className="chatHeader__left">
         <h3>
           <span className="chatHeader__hash">#</span>
-          {channelName}
+          {channelName ? channelName : "Channel"}
         </h3>
       </div>
       <div className="chatHeader__right">
