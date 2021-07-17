@@ -1,7 +1,7 @@
 import firebase from "firebase";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyBCS1fdhNqVYEV_DF22ChRzI5jGApLCmKA",
+  apiKey: "your_api_key",
   authDomain: "discord-clone-react-1c515.firebaseapp.com",
   projectId: "discord-clone-react-1c515",
   storageBucket: "discord-clone-react-1c515.appspot.com",
